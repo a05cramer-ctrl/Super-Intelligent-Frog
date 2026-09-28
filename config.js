@@ -1,1 +1,1 @@
-window.SIFROG_CFG={NAME:"SUPER INTELLIGENT FROG",TICKER:"SIFROG",CA:"",CHAIN:"solana",PAD:"stonkfun",PAIR:"NVDAx",X:"",BUY:"",CHART:""};
+window.SIFROG_CFG={NAME:"SUPER INTELLIGENT FROG",TICKER:"SIFROG",CA:"9G7ypv7qnvwHkPFjmPh96oo7PGxrkdMWua3wH9hMpump",CHAIN:"solana",PAD:"stonkfun",PAIR:"NVDAx",X:"https://x.com/superintelfrog",BUY:"",CHART:""};
