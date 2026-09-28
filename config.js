@@ -1,0 +1,1 @@
+window.SIFROG_CFG={NAME:"SUPER INTELLIGENT FROG",TICKER:"SIFROG",CA:"",CHAIN:"solana",PAD:"stonkfun",PAIR:"NVDAx",X:"",BUY:"",CHART:""};

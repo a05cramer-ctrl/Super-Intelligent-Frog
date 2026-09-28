@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Super Intelligent Frog</title>
+<meta name="description" content="The smartest frog alive. Paired with $NVDAx.">
+<meta property="og:title" content="SUPER INTELLIGENT FROG">
+<meta property="og:description" content="The smartest frog alive. Paired with $NVDAx.">
+<meta property="og:image" content="og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Baloo+2:wght@500;700;800&family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+<script src="config.js"></script>
+<style>
+:root{color-scheme:dark;--night:#140a3f;--night2:#231366;--purple:#5b2fd0;--purple2:#7a4dff;--gold:#ffc233;--gold2:#ffdb6e;--frog:#6fdc4f;--brain:#8dff5f;--ink:#0b0620;--white:#fffaf0;--red:#ff4b5c;
+--disp:'Bangers',Impact,system-ui,sans-serif;--body:'Baloo 2',system-ui,sans-serif;--chalk:'Cabin Sketch','Comic Sans MS',cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{background:var(--night);color:var(--white);overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.45;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* comic halftone */
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:14px 14px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);mask-image:linear-gradient(180deg,#000,transparent 70%)}
+
+/* nav */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:14px;padding:12px clamp(14px,3vw,34px);padding-top:calc(12px + env(safe-area-inset-top,0px));background:linear-gradient(rgba(20,10,63,.95),rgba(20,10,63,.6) 70%,transparent)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-size:24px;letter-spacing:.04em;line-height:1}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--purple);border:3px solid var(--ink)}
+.navr{margin-left:auto;display:flex;gap:10px;align-items:center}
+.chunky{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--disp);font-size:24px;letter-spacing:.06em;line-height:1;padding:14px 26px 12px;border-radius:16px;border:4px solid var(--ink);box-shadow:0 6px 0 var(--ink);transition:transform .1s,box-shadow .1s;white-space:nowrap}
+.chunky:active{transform:translateY(5px);box-shadow:0 1px 0 var(--ink)}
+.chunky.g{background:var(--gold);color:var(--ink)}
+.chunky.g:hover{background:var(--gold2)}
+.chunky.p{background:var(--purple2);color:#fff}
+.chunky.w{background:var(--white);color:var(--ink)}
+.chunky.sm{font-size:19px;padding:10px 18px 8px;border-width:3px;box-shadow:0 4px 0 var(--ink)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 70% 30%,#3a1f9a 0%,var(--night2) 45%,var(--night) 100%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.city{position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none}
+.city svg{width:100%;height:100%;display:block}
+.hwrap{position:relative;z-index:3;max-width:1320px;margin:0 auto;padding:calc(100px + env(safe-area-inset-top,0px)) clamp(16px,3vw,34px) 90px;display:flex;flex-direction:column;justify-content:center;min-height:100svh;pointer-events:none}
+.hwrap>div{max-width:min(720px,54vw);pointer-events:auto}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(62px,8.8vw,150px);line-height:.86;letter-spacing:.015em;color:var(--white);-webkit-text-stroke:5px var(--ink);paint-order:stroke fill;text-shadow:7px 8px 0 var(--ink)}
+h1 .l2{color:var(--gold)}
+h1 .l3{color:var(--frog)}
+.tag{margin-top:18px;font-size:clamp(19px,1.7vw,24px);font-weight:700;max-width:520px}
+.tag b{color:var(--gold)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.capill{margin-top:18px;display:inline-flex;align-items:center;gap:10px;max-width:100%;background:rgba(11,6,32,.7);border:3px solid var(--ink);border-radius:14px;padding:10px 14px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 4px 0 var(--ink)}
+.capill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.capill i{font-style:normal;color:var(--gold);font-family:var(--disp);letter-spacing:.06em;font-size:18px}
+.hero-frog{position:absolute;z-index:2;right:0;bottom:0;height:min(94svh,960px);aspect-ratio:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%);mask-image:linear-gradient(90deg,transparent,#000 14%)}
+.hero-frog .fw{position:absolute;inset:0;transform-origin:60% 100%;animation:float 5s ease-in-out infinite}
+.hero-frog img{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+@keyframes float{50%{transform:translateY(-12px) rotate(-.8deg)}}
+.hero-frog .glow{position:absolute;left:60.8%;top:60%;width:26%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(141,255,95,.75),rgba(141,255,95,0) 68%);animation:glow 1.8s ease-in-out infinite;pointer-events:none;mix-blend-mode:screen;z-index:2}
+@keyframes glow{50%{opacity:.35;transform:translate(-50%,-50%) scale(1.18)}}
+.hero-frog.zap .glow{animation:none;opacity:1;transform:translate(-50%,-50%) scale(1.6)}
+@keyframes pulse{50%{opacity:.35;transform:scale(1.15)}}
+.burst{position:absolute;z-index:3;display:grid;place-items:center;text-align:center;font-family:var(--disp);color:var(--ink);letter-spacing:.04em;line-height:.9;background:var(--gold);clip-path:polygon(50% 0,61% 20%,84% 8%,80% 32%,100% 42%,82% 56%,94% 78%,70% 76%,62% 100%,50% 82%,38% 100%,30% 76%,6% 78%,18% 56%,0 42%,20% 32%,16% 8%,39% 20%)}
+.burst.iq{width:180px;height:180px;right:4%;top:20%;font-size:30px;transform:rotate(10deg);animation:wob 3s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-6deg) scale(1.06)}}
+.hero .ticker{position:absolute;left:0;right:0;bottom:0;z-index:4;background:var(--gold);color:var(--ink);border-top:4px solid var(--ink);font-family:var(--disp);font-size:24px;letter-spacing:.05em;white-space:nowrap;overflow:hidden;padding:8px 0 5px}
+.hero .ticker div{display:inline-block;animation:mq 30s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+section.s{position:relative;padding:clamp(80px,11vh,130px) clamp(16px,3vw,34px)}
+.wrap{max-width:1180px;margin:0 auto;position:relative}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(46px,6.6vw,96px);line-height:.9;letter-spacing:.02em;-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:5px 6px 0 var(--ink)}
+h2 .g{color:var(--gold)}
+h2 .f{color:var(--frog)}
+.sub{font-size:20px;font-weight:600;margin-top:12px;max-width:620px;color:#e8e0ff}
+
+/* chalkboard gag */
+#problem{background:var(--purple)}
+#problem .dots{-webkit-mask-image:none;mask-image:none;opacity:.5}
+.board{position:relative;margin-top:30px;border:14px solid #8a5a2b;border-radius:14px;box-shadow:inset 0 0 0 4px #5e3b18,0 10px 0 var(--ink),0 30px 60px -20px rgba(0,0,0,.6);background:radial-gradient(ellipse at 40% 30%,#2f5a3e,#1f4230 60%,#183425);min-height:460px;display:grid;grid-template-columns:minmax(0,1fr) 360px;overflow:hidden}
+.board::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(17deg,rgba(255,255,255,.015) 0 3px,transparent 3px 9px)}
+.chalk{position:relative;padding:28px 30px;font-family:var(--chalk);font-size:clamp(22px,2.4vw,36px);line-height:1.35;color:#f2f5ee;text-shadow:0 0 1px rgba(255,255,255,.6)}
+.chalk .q{font-size:.8em;opacity:.8;margin-bottom:10px}
+.chalk .ln{white-space:pre-wrap;min-height:1.35em}
+.chalk .ans{display:inline-block;margin-top:16px;padding:4px 18px;font-size:1.35em;border:3px solid #fff7c2;border-radius:12px 18px 10px 20px;color:#fff7c2;font-weight:700;transform:rotate(-1.5deg)}
+.chalk .meta{margin-top:12px;font-family:var(--body);font-size:14px;font-weight:700;color:#c9e6c9;opacity:.85}
+.chalk .cur{display:inline-block;width:.5em;height:.12em;background:#fff;vertical-align:.1em;margin-left:2px;animation:bl .7s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.prof{position:relative;border-left:3px dashed rgba(255,255,255,.2);display:flex;align-items:flex-end;justify-content:center}
+.prof img{width:100%;height:auto;max-height:460px;object-fit:contain;object-position:bottom;display:block;transform-origin:50% 100%}
+.prof.think img{animation:think .5s ease-in-out infinite}
+@keyframes think{50%{transform:rotate(-2deg) translateY(-4px)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{background:var(--white);color:var(--ink);border:3px solid var(--ink);border-radius:999px;padding:7px 16px 5px;font-weight:800;font-size:16px;box-shadow:0 4px 0 var(--ink)}
+.chip:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.ask{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.ask input{flex:1;min-width:220px;background:var(--white);color:var(--ink);border:4px solid var(--ink);border-radius:16px;padding:12px 16px;font-weight:700;font-size:17px;outline:0;box-shadow:0 5px 0 var(--ink)}
+
+/* brain power */
+.brain{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,50px);align-items:center;background:var(--night2);border:4px solid var(--ink);border-radius:26px;padding:clamp(22px,4vw,44px);box-shadow:0 10px 0 var(--ink)}
+.orb{width:clamp(140px,17vw,210px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:4px solid var(--ink);box-shadow:0 0 50px rgba(141,255,95,.55);animation:orb 2.2s ease-in-out infinite;background:#3a2a7a}
+.orb img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes orb{50%{box-shadow:0 0 90px 10px rgba(141,255,95,.8)}}
+.price{font-family:var(--disp);font-size:clamp(54px,7vw,100px);line-height:.9;letter-spacing:.02em;color:var(--brain);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:4px 5px 0 var(--ink);font-variant-numeric:tabular-nums}
+.chg{font-family:var(--disp);font-size:28px;letter-spacing:.04em;margin-left:10px}
+.chg.up{color:var(--brain)}.chg.dn{color:var(--red)}
+.brain p{font-size:18px;font-weight:600;color:#e2dbff;margin-top:8px}
+.brain .iqline{font-size:20px;color:#fff}
+.brain .iqline b{font-family:var(--disp);font-weight:400;font-size:30px;letter-spacing:.04em;color:var(--gold)}
+.brain .iqline span{font-size:14px;color:#b9addf}
+
+/* family */
+.fam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:30px}
+.panel{position:relative;background:var(--white);color:var(--ink);border:4px solid var(--ink);border-radius:8px;padding:22px;box-shadow:8px 8px 0 var(--ink);min-height:260px;display:flex;flex-direction:column;overflow:hidden}
+.panel:nth-child(1){transform:rotate(-1.5deg)}
+.panel:nth-child(3){transform:rotate(1.2deg);background:var(--gold)}
+.panel .no{font-family:var(--disp);font-size:20px;letter-spacing:.06em;opacity:.6}
+.panel h3{font-family:var(--disp);font-weight:400;font-size:40px;line-height:.95;letter-spacing:.03em;margin-top:6px}
+.panel p{font-weight:600;margin-top:8px}
+.panel .pr{margin-top:auto;padding-top:14px;font-family:var(--disp);font-size:22px;letter-spacing:.05em}
+.panel img{position:absolute;right:-10px;bottom:-8px;height:62%;width:auto}
+.panel .sil{position:absolute;right:14px;bottom:12px;font-family:var(--disp);font-size:120px;line-height:1;opacity:.12}
+
+/* final */
+.final{text-align:center;background:var(--gold);color:var(--ink);border-top:6px solid var(--ink);overflow:hidden;padding-bottom:clamp(90px,12vh,140px)}
+.final .ff{position:absolute;bottom:0;height:min(420px,100%);width:auto;pointer-events:none}
+.final .ff.l{left:-40px;transform:scaleX(-1)}
+.final .ff.r{right:-40px}
+@media (max-width:1180px){.final .ff{display:none}}
+.final h2{color:var(--white)}
+.final .sub{color:var(--ink);margin:14px auto 0}
+.final .ctas{justify-content:center}
+.final .capill{background:var(--white);color:var(--ink)}
+footer{padding:26px clamp(16px,3vw,34px) 40px;background:var(--ink);color:#9d93c9;font-weight:600;font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;z-index:80;background:var(--gold);color:var(--ink);font-family:var(--disp);letter-spacing:.05em;font-size:20px;padding:10px 18px 8px;border-radius:14px;border:3px solid var(--ink);transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+@media (max-width:980px){
+  .hero{display:flex;flex-direction:column}
+  .hwrap{min-height:0;padding-bottom:10px;justify-content:flex-start;width:100%}
+  .hwrap>div{max-width:none}
+  .hero-frog{position:relative;right:auto;bottom:auto;height:auto;width:min(100%,620px);margin:0 auto -4px;-webkit-mask-image:none;mask-image:none}
+  .burst.iq{width:124px;height:124px;font-size:21px;top:auto;bottom:calc(min(100vw,620px)*.62);right:5%}
+  .board{grid-template-columns:1fr}
+  .prof{border-left:0;border-top:3px dashed rgba(255,255,255,.2);height:220px}
+  .prof img{max-height:220px;width:auto}
+  .fam{grid-template-columns:1fr}
+  .brain{grid-template-columns:1fr;text-align:center;justify-items:center}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  h1{-webkit-text-stroke:3px var(--ink);text-shadow:4px 5px 0 var(--ink)}
+  h2{-webkit-text-stroke:3px var(--ink)}
+  .chunky{font-size:21px;padding:12px 20px 10px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#top"><img id="logo" src="head.png" alt=""><span>SUPER INTELLIGENT FROG</span></a>
+  <div class="navr"><a class="chunky g sm" id="buyTop" href="#" target="_blank" rel="noopener">BUY</a></div>
+</header>
+
+<section class="hero" id="top">
+  <canvas class="stars" id="stars"></canvas>
+  <div class="dots"></div>
+  <div class="city"><svg viewBox="0 0 1440 300" preserveAspectRatio="none"><path fill="#0e0730" d="M0 300V190h40v-40h30v60h26V120h44v90h20v-60h36v-40h24v100h30V90h50v120h24v-70h40v70h20V60h56v150h26v-90h34v90h30v-50h46v50h24V100h40v110h30v-70h36v70h26V70h54v140h24v-80h40v80h30v-40h44v40h26V110h46v100h24v-60h40v60h30V80h50v130h26v-70h40v70h20v-30h30v40h46v200Z"/><g fill="#ffc233" opacity=".55"><rect x="330" y="110" width="6" height="8"/><rect x="346" y="140" width="6" height="8"/><rect x="590" y="90" width="6" height="8"/><rect x="606" y="130" width="6" height="8"/><rect x="890" y="100" width="6" height="8"/><rect x="1140" y="130" width="6" height="8"/><rect x="1162" y="100" width="6" height="8"/><rect x="760" y="130" width="6" height="8"/></g></svg></div>
+  <div class="hwrap">
+    <div>
+      <h1>SUPER<br><span class="l2">INTELLIGENT</span><br><span class="l3">FROG</span></h1>
+      <p class="tag">The smartest frog alive. Paired with <b>$NVDAx</b>, because a brain this big runs on NVIDIA.</p>
+      <div class="ctas">
+        <a class="chunky g" id="buyBtn" href="#" target="_blank" rel="noopener">BUY $SIFROG</a>
+        <a class="chunky w" id="chartBtn" href="#" target="_blank" rel="noopener">CHART</a>
+        <a class="chunky p" id="xBtn" href="#" target="_blank" rel="noopener">X</a>
+      </div>
+      <div><button class="capill" id="caBtn"><i>CA</i><span id="caTxt">LIVE AT LAUNCH</span></button></div>
+    </div>
+  </div>
+  <div class="hero-frog" id="heroWrap"><div class="fw"><img id="heroFrog" src="frog.webp" alt="Super Intelligent Frog"><div class="glow"></div></div></div>
+  <div class="burst iq">IQ<br>TOO HIGH</div>
+  <div class="ticker"><div id="tick"></div></div>
+</section>
+
+<section class="s" id="problem">
+  <div class="dots"></div>
+  <div class="wrap">
+    <h2>GIVE HIM A <span class="g">PROBLEM</span></h2>
+    <p class="sub">Any problem. He solves it on the spot.</p>
+    <div class="chips" id="chips"></div>
+    <form class="ask" id="askForm" autocomplete="off"><input id="askIn" maxlength="80" placeholder="Or type your own problem"><button class="chunky g sm" type="submit">SOLVE IT</button></form>
+    <div class="board">
+      <div class="chalk" id="chalk"><div class="q">Pick a problem above.</div><div class="ln">He's ready.</div></div>
+      <div class="prof" id="prof"><img id="profFrog" src="frog.webp" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="brain">
+  <div class="wrap">
+    <div class="brain">
+      <div class="orb"><img id="brainImg" src="brain.jpg" alt=""></div>
+      <div>
+        <div style="font-family:var(--disp);font-size:26px;letter-spacing:.06em;color:var(--gold)">BRAIN POWER · $NVDAx LIVE</div>
+        <div><span class="price" id="nv">$—</span><span class="chg" id="nvc"></span></div>
+        <p>His brain runs on the same chips as NVIDIA's. When NVDA thinks, he thinks.</p>
+        <p class="iqline">Frog IQ right now: <b id="iq">—</b> <span>(NVDAx price × 1,000)</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="family" style="padding-top:20px">
+  <div class="wrap">
+    <h2>THE <span class="f">SUPER</span> FAMILY</h2>
+    <p class="sub">First the dog. Then the cat. Now the one with the brain.</p>
+    <div class="fam">
+      <div class="panel"><span class="no">#1</span><h3>SUPER INU</h3><p>The dog. Strong. Loyal.<br>Not that smart.</p><span class="pr">PAIRED $NVDAx</span><span class="sil">?</span></div>
+      <div class="panel"><span class="no">#2</span><h3>SUPER INTELLIGENT CAT</h3><p>The cat. Smarter.<br>Still a cat.</p><span class="pr">PAIRED $NVDAx</span><span class="sil">?</span></div>
+      <div class="panel"><span class="no">#3</span><h3>SUPER INTELLIGENT FROG</h3><p>The frog.<br>Solved everything.</p><span class="pr">$SIFROG × $NVDAx</span><img id="famFrog" src="frog.webp" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="s final" id="buy">
+  <img class="ff r" id="finFrog" src="frog.webp" alt="">
+  <div class="wrap">
+    <h2>BUY THE <span class="f">SMARTEST</span> FROG</h2>
+    <p class="sub">$SIFROG, paired with $NVDAx on StonkFun.</p>
+    <div class="ctas" style="margin-top:24px">
+      <a class="chunky p" id="buyBtn2" href="#" target="_blank" rel="noopener">BUY $SIFROG</a>
+      <a class="chunky w" id="chartBtn2" href="#" target="_blank" rel="noopener">CHART</a>
+      <a class="chunky w" id="xBtn2" href="#" target="_blank" rel="noopener">X</a>
+    </div>
+    <button class="capill" id="caBtn2" style="margin-top:22px"><i style="color:var(--purple)">CA</i><span id="caTxt2">LIVE AT LAUNCH</span></button>
+  </div>
+</section>
+<footer><span>SUPER INTELLIGENT FROG · $SIFROG</span><span>A memecoin about a very smart frog.</span></footer>
+<div class="toast" id="toast"></div>
+<script>(()=>{document.documentElement.classList.add("js");var c=Object.assign({NAME:"SUPER INTELLIGENT FROG",TICKER:"SIFROG",CA:"",CHAIN:"solana",PAD:"stonkfun",PAIR:"NVDAx",X:"",BUY:"",CHART:""},window.SIFROG_CFG||{}),T="Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",n=t=>document.querySelector(t),C=matchMedia("(prefers-reduced-motion: reduce)").matches,f=window.SIFROG_IMG||{};f.brain&&(n("#brainImg").src=f.brain);f.frog&&document.querySelectorAll("#heroFrog,#profFrog,#famFrog,#finFrog").forEach(t=>t.src=f.frog);f.head&&(n("#logo").src=f.head);var O=c.BUY||(c.CA?c.PAD==="stonkfun"?`https://www.stonkfun.xyz/token/${c.CA}`:`https://pump.fun/coin/${c.CA}`:"https://www.stonkfun.xyz"),L=c.CHART||(c.CA?`https://gmgn.ai/sol/token/${c.CA}`:"https://gmgn.ai");["#buyTop","#buyBtn","#buyBtn2"].forEach(t=>n(t).href=O);["#chartBtn","#chartBtn2"].forEach(t=>n(t).href=L);["#xBtn","#xBtn2"].forEach(t=>n(t).href=c.X||"https://x.com");c.CA&&(n("#caTxt").textContent=c.CA,n("#caTxt2").textContent=c.CA);function m(t){let e=n("#toast");e.textContent=t,e.classList.add("on"),clearTimeout(m.t),m.t=setTimeout(()=>e.classList.remove("on"),1600)}async function P(t,e){try{await navigator.clipboard.writeText(t),m(e||"COPIED")}catch{m("COPY: "+t.slice(0,40))}}["#caBtn","#caBtn2"].forEach(t=>n(t).addEventListener("click",()=>c.CA?P(c.CA,"CA COPIED"):m("CA LIVE AT LAUNCH")));var w=["SUPER INTELLIGENT FROG","$SIFROG","PAIRED WITH $NVDAx","IQ: TOO HIGH","SOLVED P VS NP","RUNS ON NVIDIA","RIBBIT"],R=w.map(t=>`${t}&nbsp;&nbsp;\u2605&nbsp;&nbsp;`).join("");n("#tick").innerHTML=R.repeat(4);(()=>{let t=n("#stars"),e=t.getContext("2d"),s=0,i=0,l=[],r=!0,o=0,a=Math.min(devicePixelRatio||1,2);function h(){s=t.clientWidth,i=t.clientHeight,t.width=s*a,t.height=i*a,e.setTransform(a,0,0,a,0,0);let u=Math.round(s*i/4500);l=Array.from({length:u},()=>({x:Math.random()*s,y:Math.random()*i*.8,r:Math.random()*1.4+.3,p:Math.random()*6.28,s:Math.random()*1.5+.5}))}function g(u){e.clearRect(0,0,s,i);for(let d of l){let x=.35+.65*(.5+.5*Math.sin(d.p+u*.001*d.s));e.globalAlpha=x,e.fillStyle=d.r>1.4?"#ffe9a8":"#ffffff",e.beginPath(),e.arc(d.x,d.y,d.r,0,6.283),e.fill()}e.globalAlpha=1,r&&!C&&(o=requestAnimationFrame(g))}h(),g(0),addEventListener("resize",()=>{h(),(C||!r)&&g(0)}),new IntersectionObserver(u=>{let d=u[0].isIntersecting;d&&!r&&(r=!0,cancelAnimationFrame(o),o=requestAnimationFrame(g)),r=d}).observe(n("#top"))})();var E=[{chip:"P vs NP",q:"Does P = NP?",lines:["let P = frog","let NP = not frog","frog + not frog = pond","pond \xF7 2 = ribbit"],a:"P = NP = RIBBIT"},{chip:"Will NVDA go up?",q:"Will NVDA go up?",lines:["NVDA = chips","chips \u2192 brain \u2192 me","me = up only","\u2234 NVDA ="],a:"UP"},{chip:"What's 2 + 2?",q:"What is 2 + 2?",lines:["2 + 2","= (1 + 1) + (1 + 1)","= 10,000 GPUs \xD7 3 days"],a:"4",meta:"Solved in 3 days. Worth it."},{chip:"Where is the CA?",q:"Where is the CA?",lines:["CA = ?","look up \u2191","no, higher","the gold button"],a:"IT'S ON THE PAGE"},{chip:"Meaning of life",q:"What is the meaning of life?",lines:["life = \u222B flies dt","flies \u2248 \u221E","\u2234 life = eat flies"],a:"FLIES"},{chip:"Should I buy $SIFROG?",q:"Should I buy $SIFROG?",lines:["smart frog + $NVDAx","= smart money","you = smart?"],a:"YES"}],I=n("#chalk"),b=n("#prof"),p=0,F=t=>t.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e]),v=t=>new Promise(e=>setTimeout(e,t));function N(t){let e=t.trim().replace(/\s+/g," ").slice(0,80),s=e.length>22?e.slice(0,22).trim()+"\u2026":e,i=[...e].reduce((a,h)=>a*31+h.charCodeAt(0)>>>0,7),l=["RIBBIT","YES","NO. NEXT.","BUY $SIFROG","ASK NVIDIA","FLIES"],o=[[/\b(bag|down|dump|rug|red|loss|lost|rekt|sell)/i,"BUY MORE"],[/\b(wen|when|moon|soon|pump|ath)/i,"SOON"],[/\b(gf|girlfriend|wife|date|love)/i,"NO"],[/\b(nvda|nvidia|jensen|chip|gpu)/i,"UP"],[/\b(eat|food|hungry|dinner|lunch)/i,"FLIES"],[/\b(ca|contract|address)/i,"IT'S ON THE PAGE"]].find(([a])=>a.test(e));return{q:e.endsWith("?")?e:e+"?",lines:[`let x = "${s}"`,`x\xB2 + ${i%89+11} GPUs = frog`,"frog \u2212 frog = 0","\u2234 x ="],a:o?o[1]:l[i%l.length]}}async function A(t){let e=++p;b.classList.add("think"),n("#heroWrap").classList.add("zap"),I.innerHTML=`<div class="q">Problem: ${F(t.q)}</div>`;let s=C?0:26;for(let r of t.lines){if(e!==p)return;let o=document.createElement("div");o.className="ln",I.appendChild(o);let a=document.createElement("span");a.className="cur";for(let h=1;h<=r.length;h++){if(e!==p)return;o.textContent=r.slice(0,h),o.appendChild(a),s&&await v(s+Math.random()*30)}a.remove(),s&&await v(180)}if(e!==p)return;let i=document.createElement("div");i.className="ans",i.textContent=t.a,I.appendChild(i);let l=document.createElement("div");l.className="meta",l.textContent=t.meta||`Solved in 0.000${1+Math.floor(Math.random()*9)}s \xB7 brain used: ${2+Math.floor(Math.random()*5)}%`,I.appendChild(l),b.classList.remove("think"),setTimeout(()=>n("#heroWrap").classList.remove("zap"),400)}var M=n("#chips");E.forEach(t=>{let e=document.createElement("button");e.type="button",e.className="chip",e.textContent=t.chip,e.addEventListener("click",()=>A(t)),M.appendChild(e)});n("#askForm").addEventListener("submit",t=>{t.preventDefault();let e=n("#askIn").value;if(!e.trim()){n("#askIn").focus(),m("GIVE HIM A PROBLEM");return}A(N(e)),n("#askIn").value=""});var S=new IntersectionObserver(t=>{t[0].isIntersecting&&(S.disconnect(),p||A(E[0]))},{threshold:.35});S.observe(n(".board"));async function y(){try{let e=await(await fetch(`https://api.dexscreener.com/tokens/v1/solana/${T}`)).json(),s=(Array.isArray(e)?e:e.pairs||[]).filter(o=>o.priceUsd);if(!s.length)return;s.sort((o,a)=>(a.liquidity&&a.liquidity.usd||0)-(o.liquidity&&o.liquidity.usd||0));let i=s[0],l=+i.priceUsd,r=i.priceChange&&i.priceChange.h24;if(n("#nv").textContent="$"+l.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}),typeof r=="number"){let o=n("#nvc");o.textContent=(r>=0?"\u25B2 ":"\u25BC ")+Math.abs(r).toFixed(2)+"%",o.className="chg "+(r>=0?"up":"dn")}n("#iq").textContent=Math.round(l*1e3).toLocaleString("en-US")}catch{}}y();setInterval(()=>{document.hidden||y()},3e4);window.SIFROG_DEBUG={solve:A,PROBLEMS:E,customProblem:N};})();
+</script>
+</body>
+</html>
